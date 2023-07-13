@@ -21,28 +21,49 @@ namespace ExceptionHandlingExercise
 
 
             //TODO START HERE:
-            
-            // Make a foreach loop to iterate through your character array
-            
-                // Now create a try catch
-                
-                
-                    // Inside your try block
-                        // set your string variable to each array element in your char[] to .ToString()
-                        // Now, using int.Parse, parse your string variable and store in an int variable
-                        // Then add each int to your list
-                
-                // catch your Exception:
-                // in the scope of your catch you can use the following, 
-                
-                    //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
-                
-            
 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            char[] arr = { '7', '6', '5', '4', '3', '2', 'b', 'm', 'l' };
+            List<int> numbers = new List<int>();
+            string str = string.Empty;
+
+            // Make a foreach loop to iterate through your character array
+
+            Console.WriteLine("Exception messages");
+            foreach (var item in arr)
+            {
+                try
+                {
+                    str = item.ToString();
+                    int converted = int.Parse(str);
+                    numbers.Add(converted);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Unable to Parse '{item}'");
+                }
+            }
+
+            // Now create a try catch
+
+
+            // Inside your try block
+            // set your string variable to each array element in your char[] to .ToString()
+            // Now, using int.Parse, parse your string variable and store in an int variable
+            // Then add each int to your list
+
+            // catch your Exception:
+            // in the scope of your catch you can use the following, 
+
+            //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
+
+
+            Console.WriteLine();
+            Console.WriteLine("Numbers in our list");
+            Console.WriteLine();
+            foreach (var num in numbers)
+            {
+                Console.WriteLine(num);
+            }
         }
     }
 }
